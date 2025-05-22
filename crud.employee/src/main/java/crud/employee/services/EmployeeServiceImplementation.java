@@ -15,5 +15,17 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	public void addEmployee(Employee emp) {
 		repo.save(emp);
 	}
+	
+	public void updateEmployee(Employee emp) {
+		repo.save(emp);
+	}
+	
+	public void deleteEmployee(Employee emp) {
+		repo.delete(emp);
+	}
+	
+	public Employee searchEmployee(int id) {
+		return repo.findById(id).get();
+	}
 
 }
