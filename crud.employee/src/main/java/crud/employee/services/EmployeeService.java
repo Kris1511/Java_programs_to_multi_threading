@@ -1,5 +1,7 @@
 package crud.employee.services;
 
+import java.util.List;
+
 import crud.employee.entities.Employee;
 
 public interface EmployeeService {
@@ -11,5 +13,7 @@ public interface EmployeeService {
 	void deleteEmployee(Employee emp);
 	
 	Employee searchEmployee(int id);
+	
+	List<Employee> fetchEmployee();
 
 }
