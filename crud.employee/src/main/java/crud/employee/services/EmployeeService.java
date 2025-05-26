@@ -6,6 +6,8 @@ import crud.employee.entities.Employee;
 
 public interface EmployeeService {
 	
+	Employee loginEmployee(int id);
+	
 	void addEmployee(Employee emp);
 	
 	void updateEmployee(Employee emp);

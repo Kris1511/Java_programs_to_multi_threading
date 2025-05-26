@@ -14,6 +14,10 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	@Autowired
 	EmployeeRepositories repo;
 	
+	public Employee loginEmployee(int id) {
+		return repo.findById(id).get();
+	}
+	
 	public void addEmployee(Employee emp) {
 		repo.save(emp);
 	}

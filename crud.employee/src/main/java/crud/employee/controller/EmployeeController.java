@@ -18,6 +18,19 @@ public class EmployeeController {
 	
 	@Autowired
 	EmployeeService service;
+	
+	@GetMapping("/login")
+	public String loginEmp() {
+		return "login";
+	}
+	
+	@PostMapping("/login_emp")
+	public String loginEmployee(@RequestParam int id) {
+		service.loginEmployee(id);
+		System.out.println("Login successful...");
+		
+		return "success";
+	}
 
 	// add employee
 	@GetMapping("/add")
