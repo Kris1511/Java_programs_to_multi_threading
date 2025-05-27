@@ -9,6 +9,8 @@ public class Users {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
 	String username;
+	
+	@Column(unique = true)
 	String email;
 	String password;
 	String gender;

@@ -20,8 +20,17 @@ public class AuthController {
 	
 	@PostMapping("/register")
 	public String register(@ModelAttribute Users user) {
-		users.userRegister(user);
-		System.out.println("Successfully signed up...");
+		
+		String username = user.getUsername();
+		
+		boolean userExist = users.userExist(username);
+		
+		if (userExist == false) {
+			users.userRegister(user);
+			System.out.println("Successfully signed up...");
+		} else {
+			System.out.println("User already exist...");
+		}
 		return "index";
 	}
 	
@@ -31,8 +40,22 @@ public class AuthController {
 	}
 	
 	@PostMapping("/login")
-	public String login() {
-		return "";
+	public String login(@ModelAttribute Users user) {
+		
+		System.out.println("Form Email: " + user.getEmail());
+	    System.out.println("Form Password: " + user.getPassword());
+		
+		Users loginUser = users.userLogin(user);
+		
+		if (loginUser != null) {
+			System.out.println("Login successful for: " + loginUser.getEmail());
+			
+			return "index";
+		} 
+		else {
+			System.out.println("Login fail...");
+			return "sign_in";
+		}
 	}
 
 }

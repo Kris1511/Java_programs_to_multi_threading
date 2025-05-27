@@ -16,8 +16,26 @@ public class UsersServiceImplements implements UsersService {
 		repo.save(user);
 	}
 	
-//	public Users userLogin(Users id) {
-//		return repo.findById(id);
-//	}
+	// user existing object
+	public boolean userExist(String username) {
+		Users user = repo.findByUsername(username);
+		
+		if (user != null) 
+			return true;
+		else 
+			return false;
+	}
+	
+	
+	public Users userLogin(Users user) {
+	    
+		Users existingUser = repo.findByEmail(user.getEmail());
+		
+		if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
+			return existingUser;
+		}
+		
+		return null;
+	}
 
 }
