@@ -9,6 +9,7 @@ public interface UsersRepository extends JpaRepository<Users, Integer> {
 	// user name matching
 	Users findByUsername(String username);
 	
+	// existing email
 	Users findByEmail(String email);
 
 }

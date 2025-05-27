@@ -29,7 +29,7 @@ public class AuthController {
 			users.userRegister(user);
 			System.out.println("Successfully signed up...");
 		} else {
-			System.out.println("User already exist...");
+			System.out.println("Username already exist...");
 		}
 		return "index";
 	}
@@ -39,6 +39,7 @@ public class AuthController {
 		return "sign_in";
 	}
 	
+	// userExist
 	@PostMapping("/login")
 	public String login(@ModelAttribute Users user) {
 		
