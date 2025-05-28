@@ -1,0 +1,85 @@
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F1F9F6;
+    color: #333;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Headings */
+h2 {
+    color: #2F4F4F;
+    background-color: #E7F6F0;
+    padding: 10px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+/* Links */
+a {
+    color: #2F4F4F;
+    background-color: #C5EADB;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+a:hover {
+    background-color: #AFE1CE;
+}
+
+/* Forms */
+form {
+    background-color: #D1EEE1;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    min-width: 100px; /* or adjust as needed */
+}
+
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #AFE1CE;
+    border-radius: 5px;
+    background-color: #F1F9F6;
+}
+
+input[type="submit"] {
+    background-color: #AFE1CE;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: #C5EADB;
+}
+
+/* Messages */
+div[th\\] {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}

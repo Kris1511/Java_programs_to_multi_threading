@@ -2,6 +2,7 @@ package com.authentication.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.authentication.entities.Users;
@@ -19,7 +20,7 @@ public class AuthController {
 	}
 	
 	@PostMapping("/register")
-	public String register(@ModelAttribute Users user) {
+	public String register(@ModelAttribute Users user, Model m) {
 		
 		String username = user.getUsername();
 		
@@ -27,11 +28,12 @@ public class AuthController {
 		
 		if (userExist == false) {
 			users.userRegister(user);
-			System.out.println("Successfully signed up...");
+			m.addAttribute("msg", "Successfully signed up...");
+			return "sign_in";
 		} else {
-			System.out.println("Username already exist...");
-		}
-		return "index";
+			m.addAttribute("msg", "Username already exist...");
+			return "sign_up";
+		}		
 	}
 	
 	@GetMapping("/sign_in")
@@ -41,7 +43,7 @@ public class AuthController {
 	
 	// userExist
 	@PostMapping("/login")
-	public String login(@ModelAttribute Users user) {
+	public String login(@ModelAttribute Users user, Model m) {
 		
 		System.out.println("Form Email: " + user.getEmail());
 	    System.out.println("Form Password: " + user.getPassword());
@@ -49,12 +51,12 @@ public class AuthController {
 		Users loginUser = users.userLogin(user);
 		
 		if (loginUser != null) {
-			System.out.println("Login successful for: " + loginUser.getEmail());
+			m.addAttribute("success", "Login successfully...");
 			
-			return "index";
+			return "sign_in";
 		} 
 		else {
-			System.out.println("Login fail...");
+			m.addAttribute("errormsg", "Wrong credentials write the correct one...");
 			return "sign_in";
 		}
 	}
