@@ -1,85 +1,177 @@
-/* General Page Styles */
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #F1F9F6;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
     padding: 20px;
-    align-items: center;
-    justify-content: center;
+    background-color: #F7E4E0;
+    color: #333;
 }
 
-/* Headings */
 h2 {
-    color: #2F4F4F;
-    background-color: #E7F6F0;
-    padding: 10px;
-    border-radius: 8px;
-    width: fit-content;
+    color: #7E96C4;
+    border-bottom: 2px solid #D7B7BC;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
 }
 
-/* Links */
+/* Link Styles */
 a {
-    color: #2F4F4F;
-    background-color: #C5EADB;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    margin-right: 10px;
     display: inline-block;
+    padding: 10px 20px;
+    background-color: #8BA6E9;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 a:hover {
-    background-color: #AFE1CE;
+    background-color: #7E96C4;
 }
 
-/* Forms */
+/* Form Styles */
 form {
-    background-color: #D1EEE1;
+    max-width: 500px;
+    margin: 0 auto;
     padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-}
-
-.form-group {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    gap: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 label {
-    font-weight: bold;
-    min-width: 100px; /* or adjust as needed */
+    display: block;
+    margin-bottom: 8px;
+    color: #7E96C4;
+    font-weight: 500;
 }
-
 
 input[type="text"],
+input[type="password"],
 textarea {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #AFE1CE;
-    border-radius: 5px;
-    background-color: #F1F9F6;
+    border: 1px solid #D7B7BC;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #8BA6E9;
+    box-shadow: 0 0 5px rgba(139, 166, 233, 0.5);
+}
+
+.back-button {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #D7B7BC;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    float: right;
+}
+
+.back-button:hover {
+    background-color: #7E96C4;
+    color: white;
+}
+
+/* Radio Button Styles */
+/* Horizontal Radio Button Group */
+.radio-group {
+    display: flex;
+    flex-direction: row; /* This is default, but explicit is good */
+    gap: 20px; /* Space between radio options */
+    margin-bottom: 15px;
+    align-items: center; /* Vertically center items */
+}
+
+/* Style for each radio option */
+.radio-group label {
+    display: flex;
+    align-items: center; /* Center radio button with its label */
+    gap: 8px; /* Space between radio button and its text */
+    cursor: pointer;
+}
+
+/* Radio button styling */
+input[type="radio"] {
+    margin: 0; /* Remove default margins */
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Button Styles */
 input[type="submit"] {
-    background-color: #AFE1CE;
+    background-color: #8BA6E9;
+    color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
+    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #C5EADB;
+    background-color: #7E96C4;
 }
 
-/* Messages */
-div[th\\] {
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
+/* Message Styles */
+div[style*="color: red"],
+div[th\\ ="${msg}"][style*="color: red"] {
+    color: #d9534f !important;
+    padding: 0px 5px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 20px;
+}
+
+.error-message {
+    color: #d9534f;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 10px 15px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 80%;
+}
+
+.error-message h4 {
+    margin: 0;
+}
+
+div[style*="color: green"],
+div[th\\ ="${success}"][style*="color: green"],
+div[th\\ ="${msg}"][style*="color: green"] {
+    color: #28a745 !important;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 80%;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+    }
+    
+    input[type="submit"] {
+        width: 100%;
+    }
 }
