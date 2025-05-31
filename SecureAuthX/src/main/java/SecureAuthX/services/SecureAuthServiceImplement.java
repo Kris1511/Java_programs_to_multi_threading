@@ -16,6 +16,16 @@ public class SecureAuthServiceImplement implements SecureAuthService {
 		repo.save(secure);		
 	}
 	
+	public boolean userExist(String username) {
+		SecureEntities name = repo.findByUsername(username);
+		
+		if (name != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public SecureEntities addLogin(SecureEntities secure) {
 		SecureEntities entity =  repo.findByUsername(secure.getUsername());
 		
